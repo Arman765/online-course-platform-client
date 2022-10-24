@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { FaToggleOn, FaToggleOff } from "react-icons/fa";
 
 const Header = () => {
+  const [theme, setTheme] = useState(false);
+
+  const handleTheme = () => {
+    setTheme(!theme);
+  };
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg={theme ? "light" : "primary"}
+      variant={theme ? "light" : "dark"}
+    >
       <Container>
         <Navbar.Brand href="#home">
           Free<span>Dom</span>
@@ -19,12 +31,12 @@ const Header = () => {
             <Nav.Link href="#pricing">FAQ</Nav.Link>
             <Nav.Link href="#blog">Blog</Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
+
+          {theme ? (
+            <FaToggleOff onClick={handleTheme}></FaToggleOff>
+          ) : (
+            <FaToggleOn onClick={handleTheme}></FaToggleOn>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
