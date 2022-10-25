@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Container from "react-bootstrap/Container";
 
 import Nav from "react-bootstrap/Nav";
@@ -6,8 +6,11 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaToggleOn, FaToggleOff } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   const [theme, setTheme] = useState(false);
 
   const handleTheme = () => {
@@ -42,11 +45,20 @@ const Header = () => {
             </Link>
           </Nav>
 
-          {theme ? (
-            <FaToggleOff onClick={handleTheme}></FaToggleOff>
-          ) : (
-            <FaToggleOn onClick={handleTheme}></FaToggleOn>
-          )}
+          <div className="mx-auto">
+            {theme ? (
+              <FaToggleOff onClick={handleTheme}></FaToggleOff>
+            ) : (
+              <FaToggleOn onClick={handleTheme}></FaToggleOn>
+            )}
+          </div>
+
+          <Nav>
+            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              Dank memes
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
