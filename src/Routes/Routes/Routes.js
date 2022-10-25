@@ -2,6 +2,7 @@ import Main from "../../layout/Main";
 import Courses from "../../Pages/Courses/Courses/Courses";
 import Course from "../../Pages/Course/Course/Course";
 import Home from "../../Pages/Home/Home/Home";
+import Blog from "../../Pages/Blog/Blog/Blog";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
         element: <Courses></Courses>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/courses/${params.id}`),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },

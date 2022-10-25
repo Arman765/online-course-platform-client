@@ -35,7 +35,9 @@ const Header = () => {
               Courses
             </Link>
             <Link className="text-decoration-none ms-5 text-dark">FAQ</Link>
-            <Link className="text-decoration-none ms-5 text-dark">Blog</Link>
+            <Link to="/blog" className="text-decoration-none ms-5 text-dark">
+              Blog
+            </Link>
           </Nav>
 
           {theme ? (
