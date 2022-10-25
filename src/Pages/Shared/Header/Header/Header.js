@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaToggleOn, FaToggleOff } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [theme, setTheme] = useState(false);
@@ -26,10 +27,12 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Courses</Nav.Link>
-            <Nav.Link href="#pricing">FAQ</Nav.Link>
-            <Nav.Link href="#blog">Blog</Nav.Link>
+          <Nav className="me-auto ">
+            <Link className="text-decoration-none ms-5 text-dark" to="/courses">
+              Courses
+            </Link>
+            <Link className="text-decoration-none ms-5 text-dark">FAQ</Link>
+            <Link className="text-decoration-none ms-5 text-dark">Blog</Link>
           </Nav>
 
           {theme ? (
