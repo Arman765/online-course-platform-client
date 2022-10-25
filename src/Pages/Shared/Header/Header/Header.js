@@ -12,7 +12,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const [theme, setTheme] = useState(false);
 
@@ -20,9 +20,15 @@ const Header = () => {
     setTheme(!theme);
   };
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      {user.displayName}
+      {user?.displayName}
     </Tooltip>
   );
 
@@ -54,46 +60,63 @@ const Header = () => {
             </Link>
           </Nav>
 
-          <div className="mx-auto">
-            {theme ? (
-              <FaToggleOff onClick={handleTheme}></FaToggleOff>
-            ) : (
-              <FaToggleOn onClick={handleTheme}></FaToggleOn>
-            )}
-          </div>
-
           <Nav>
-            <Button variant="info">
-              <Link to="/login" className="text-decoration-none ms-5 text-dark">
-                Login
-              </Link>
-            </Button>{" "}
-            <Button variant="warning">
-              {" "}
-              <Link
-                to="/signup"
-                className="text-decoration-none ms-5 text-dark"
-              >
-                Sign Up
-              </Link>
-            </Button>
+            <>
+              {user?.uid ? (
+                <>
+                  {/* <button onClick={handleLogOut}>Log Out</button> */}
+                  <Button onClick={handleLogOut} variant="light">
+                    Log Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="info">
+                    <Link
+                      to="/login"
+                      className="text-decoration-none ms-5 text-dark"
+                    >
+                      Login
+                    </Link>
+                  </Button>{" "}
+                  <Button variant="warning">
+                    {" "}
+                    <Link
+                      to="/signup"
+                      className="text-decoration-none ms-5 text-dark"
+                    >
+                      Sign Up
+                    </Link>
+                  </Button>
+                </>
+              )}
+            </>
             <OverlayTrigger
               placement="left"
               delay={{ show: 250, hide: 400 }}
               overlay={renderTooltip}
             >
-              <Link className="text-decoration-none ms-5 text-dark">
-                {user.photoURL ? (
+              <Nav.Link className="text-decoration-none ms-5 text-dark">
+                {user?.photoURL ? (
                   <Image
-                    style={{ height: "40px" }}
+                    style={{ height: "30px" }}
                     roundedCircle
                     src={user.photoURL}
                   ></Image>
                 ) : (
                   <FaUser></FaUser>
                 )}
-              </Link>
+              </Nav.Link>
             </OverlayTrigger>
+          </Nav>
+          <Nav className="ms-5">
+            <div className="mx-auto">
+              {theme ? (
+                <FaToggleOff onClick={handleTheme}></FaToggleOff>
+              ) : (
+                <FaToggleOn onClick={handleTheme}></FaToggleOn>
+              )}
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
