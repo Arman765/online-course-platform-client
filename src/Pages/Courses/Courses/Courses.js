@@ -5,7 +5,7 @@ import LeftSideBar from "../../Shared/LeftSideBar/LeftSideBar/LeftSideBar";
 
 const Courses = () => {
   return (
-    <Container>
+    <Container className="mt-5 p-3">
       <Row>
         <Col lg="3">
           <LeftSideBar></LeftSideBar>
