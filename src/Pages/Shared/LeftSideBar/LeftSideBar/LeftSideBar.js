@@ -12,11 +12,16 @@ const LeftSideBar = () => {
 
   return (
     <div>
-      <h3>All Courses : {courses.length}</h3>
+      <h1 className="mb-4 text-primary">All Courses</h1>
       <div>
         {courses.map((course) => (
           <p key={course.id}>
-            <Link to={`/courses/${course.id}`}>{course.name}</Link>
+            <Link
+              className="btn btn-outline-info text-decoration-none  text-dark"
+              to={`/courses/${course.id}`}
+            >
+              {course.name}
+            </Link>
           </p>
         ))}
       </div>
