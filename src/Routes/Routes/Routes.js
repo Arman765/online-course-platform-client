@@ -4,6 +4,8 @@ import Course from "../../Pages/Course/Course/Course";
 import Home from "../../Pages/Home/Home/Home";
 import Blog from "../../Pages/Blog/Blog/Blog";
 import Faq from "../../Pages/FAQ/FAQ/Faq";
+import Login from "../../Pages/Login/Login/Login";
+import SignUp from "../../Pages/SignUp/SignUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -33,6 +35,14 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faq></Faq>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
     ],
   },

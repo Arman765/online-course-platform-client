@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
+import { Button, Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { FaToggleOn, FaToggleOff } from "react-icons/fa";
+import { FaToggleOn, FaToggleOff, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -16,6 +19,12 @@ const Header = () => {
   const handleTheme = () => {
     setTheme(!theme);
   };
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {user.displayName}
+    </Tooltip>
+  );
 
   return (
     <Navbar
@@ -54,10 +63,37 @@ const Header = () => {
           </div>
 
           <Nav>
-            <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            <Button variant="info">
+              <Link to="/login" className="text-decoration-none ms-5 text-dark">
+                Login
+              </Link>
+            </Button>{" "}
+            <Button variant="warning">
+              {" "}
+              <Link
+                to="/signup"
+                className="text-decoration-none ms-5 text-dark"
+              >
+                Sign Up
+              </Link>
+            </Button>
+            <OverlayTrigger
+              placement="left"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip}
+            >
+              <Link className="text-decoration-none ms-5 text-dark">
+                {user.photoURL ? (
+                  <Image
+                    style={{ height: "40px" }}
+                    roundedCircle
+                    src={user.photoURL}
+                  ></Image>
+                ) : (
+                  <FaUser></FaUser>
+                )}
+              </Link>
+            </OverlayTrigger>
           </Nav>
         </Navbar.Collapse>
       </Container>
