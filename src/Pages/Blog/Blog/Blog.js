@@ -1,70 +1,118 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
+import ReactImg from "../../../assets/course/React.png";
 
 const Blog = () => {
   return (
-    <div>
-      <Container className="mt-5">
-        <Accordion defaultActiveKey={["0"]} alwaysOpen>
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>
-              <p className="fs-4">What is cors?</p>
-            </Accordion.Header>
-            <Accordion.Body>
-              CORS stands for Cross-Origin Resource Sharing. It allows us to
-              relax the security applied to an API. This is done by bypassing
-              the Access-Control-Allow-Origin headers, which specify which
-              origins can access the API. In other words, CORS is a browser
-              security feature that restricts cross-origin HTTP requests with
-              other servers and specifies which domains access your resources.
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>
-              {" "}
-              <p className="fs-4">
+    <div className="d-flex flex-column justify-content-center mt-5">
+      <div className="card mb-3 w-75 mx-auto">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={ReactImg}
+              className="img-fluid rounded-start w-75 h-auto"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title text-primary">What is cors?</h5>
+              <p className="card-text">
+                CORS stands for Cross-Origin Resource Sharing. It allows us to
+                relax the security applied to an API. This is done by bypassing
+                the Access-Control-Allow-Origin headers, which specify which
+                origins can access the API. In other words, CORS is a browser
+                security feature that restricts cross-origin HTTP requests with
+                other servers and specifies which domains access your resources.
+              </p>
+              <p className="card-text">
+                <Button variant="outline-primary">More</Button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="card mb-3 w-75 mx-auto">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={ReactImg}
+              className="img-fluid rounded-start w-75 h-auto"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title text-primary">
                 Why are you using firebase? What other options do you have to
                 implement authentication?
+              </h5>
+              <p className="card-text">
+                <p>
+                  Firebase Authentication aims to make building secure
+                  authentication systems easy, while improving the sign-in and
+                  onboarding experience for end users. It provides an end-to-end
+                  identity solution, supporting email and password accounts,
+                  phone auth, and Google, Twitter, Facebook, and GitHub login,
+                  and more.
+                </p>
+                <p>
+                  12 User Authentication Platforms [Auth0, Firebase
+                  Alternatives] STYTCH. Ory. Supabase. Okta. PingIdentity.
+                  Keycloak. Frontegg. Authress.
+                </p>
               </p>
-            </Accordion.Header>
-            <Accordion.Body>
-              <p>
-                Firebase Authentication aims to make building secure
-                authentication systems easy, while improving the sign-in and
-                onboarding experience for end users. It provides an end-to-end
-                identity solution, supporting email and password accounts, phone
-                auth, and Google, Twitter, Facebook, and GitHub login, and more.
+              <p className="card-text">
+                <Button variant="outline-primary">More</Button>
               </p>
-              <p>
-                12 User Authentication Platforms [Auth0, Firebase Alternatives]
-                STYTCH. Ory. Supabase. Okta. PingIdentity. Keycloak. Frontegg.
-                Authress.
-              </p>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="2">
-            <Accordion.Header>
-              {" "}
-              <p className="fs-4">How does the private route work?</p>
-            </Accordion.Header>
-            <Accordion.Body>
-              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="card mb-3 w-75 mx-auto">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={ReactImg}
+              className="img-fluid rounded-start w-75 h-auto"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title text-primary">
+                How does the private route work?
+              </h5>
+              <p className="card-text">
                 The private route component is similar to the public route, the
                 only change is that redirect URL and authenticate condition. If
                 the user is not authenticated he will be redirected to the login
                 page and the user can only access the authenticated routes If he
                 is authenticated (Logged in).
               </p>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="3">
-            <Accordion.Header>
-              {" "}
-              <p className="fs-4">What is Node? How does Node work?</p>
-            </Accordion.Header>
-            <Accordion.Body>
-              <p>
+              <p className="card-text">
+                <Button variant="outline-primary">More</Button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="card mb-3 w-75 mx-auto">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={ReactImg}
+              className="img-fluid rounded-start w-75 h-auto"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title text-primary">
+                What is Node? How does Node work?
+              </h5>
+              <p className="card-text">
                 Node.js is an open-source backend javascript runtime
                 environment. It is a used as backend service where javascript
                 works on the server-side of the application. This way javascript
@@ -81,10 +129,13 @@ const Blog = () => {
                 requests with a single thread without blocking it for one
                 request.
               </p>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-      </Container>
+              <p className="card-text">
+                <Button variant="outline-primary">More</Button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Courses from "../../Pages/Courses/Courses/Courses";
 import Course from "../../Pages/Course/Course/Course";
 import Home from "../../Pages/Home/Home/Home";
 import Blog from "../../Pages/Blog/Blog/Blog";
+import Faq from "../../Pages/FAQ/FAQ/Faq";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
     ],
   },
