@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import ColorProvider from "../../../../contexts/ColorProvider/ColorProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -153,6 +154,7 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <ColorProvider theme={theme}></ColorProvider>
     </Navbar>
   );
 };

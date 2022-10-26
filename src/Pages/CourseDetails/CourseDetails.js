@@ -26,7 +26,7 @@ const CourseDetails = () => {
           )}
         </Pdf>
       </div>
-      <div ref={ref} className="w-auto h-25">
+      <div ref={ref} className="w-50 h-25">
         <Card>
           <Card.Img variant="top" src={picture} />
           <Card.Body>

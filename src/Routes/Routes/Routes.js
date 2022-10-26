@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp/SignUp";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import Error from "../../Pages/Error/Error/Error";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -57,5 +58,9 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Error></Error>,
   },
 ]);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import LoginImg from "../../../assets/login/login.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ const Login = () => {
   const { providerLogin, signIn, providerLoginGit } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [error, setError] = useState("");
 
   const from = location.state?.from?.pathname || "/";
 
@@ -52,6 +53,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message);
       });
   };
 
@@ -82,6 +84,7 @@ const Login = () => {
             required
           />
         </div>
+        <div className="text-danger">{error}</div>
         <button className="btn mt-3">Login</button>
       </form>
       <button onClick={handleGoogleSignIn} className="btn mt-2 mb-3">
