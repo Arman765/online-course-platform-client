@@ -88,7 +88,11 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   {/* <button onClick={handleLogOut}>Log Out</button> */}
-                  <Button onClick={handleLogOut} variant="light">
+                  <Button
+                    onClick={handleLogOut}
+                    variant="light"
+                    className="fw-bold"
+                  >
                     Log Out
                   </Button>
                 </>
