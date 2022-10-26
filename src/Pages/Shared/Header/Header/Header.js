@@ -26,6 +26,17 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
 
+  const handleToogleDark = () => {
+    document.body.classList.add("bg-dark");
+    document.body.classList.remove("bg-light");
+    setTheme(!theme);
+  };
+  const handleToogleLight = () => {
+    document.body.classList.add("bg-light");
+    document.body.classList.remove("bg-dark");
+    setTheme(!theme);
+  };
+
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       {user?.displayName}
@@ -112,9 +123,9 @@ const Header = () => {
           <Nav className="ms-5">
             <div className="mx-auto">
               {theme ? (
-                <FaToggleOff onClick={handleTheme}></FaToggleOff>
+                <FaToggleOn onClick={handleToogleLight}></FaToggleOn>
               ) : (
-                <FaToggleOn onClick={handleTheme}></FaToggleOn>
+                <FaToggleOff onClick={handleToogleDark}></FaToggleOff>
               )}
             </div>
           </Nav>
