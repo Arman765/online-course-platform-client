@@ -3,21 +3,34 @@ import "./Login.css";
 import LoginImg from "../../../assets/login/login.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FaMailBulk, FaKey } from "react-icons/fa";
 
 const Login = () => {
-  const { providerLogin, signIn } = useContext(AuthContext);
+  const { providerLogin, signIn, providerLoginGit } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    providerLoginGit(githubProvider)
+      .then((result) => {
+        const user = result.user;
+
         console.log(user);
       })
       .catch((error) => {
@@ -73,6 +86,9 @@ const Login = () => {
       </form>
       <button onClick={handleGoogleSignIn} className="btn mt-2 mb-3">
         Google
+      </button>
+      <button onClick={handleGithubSignIn} className="btn mt-2 mb-3">
+        Github
       </button>
       <div className="text-center fs-6">
         <p>

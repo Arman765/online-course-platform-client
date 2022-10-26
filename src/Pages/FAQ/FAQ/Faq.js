@@ -6,7 +6,7 @@ const Faq = () => {
     <div>
       <Container className="mt-5">
         <div className="p-3">
-          <p className="fs-3 text-center text-primary ">
+          <p className="fs-3 text-center text-primary fw-bold">
             Frequently Asked Questions
           </p>
         </div>

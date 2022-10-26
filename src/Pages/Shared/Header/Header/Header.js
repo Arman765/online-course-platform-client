@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { Button, Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 
@@ -47,26 +47,38 @@ const Header = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg={theme ? "light" : "primary"}
+      bg={theme ? "light" : "info"}
       variant={theme ? "light" : "dark"}
     >
       <Container>
-        <Navbar.Brand href="#home">
-          Free<span>Dom</span>
+        <Navbar.Brand href="#home" className="fw-bold fs-4">
+          Free<span className="text-black fs-4">Dom</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto ">
-            <Link to="/" className="text-decoration-none ms-5 text-dark">
+          <Nav className="me-auto text-center">
+            <Link
+              to="/"
+              className="text-decoration-none  text-dark fw-bold btn "
+            >
               Home
             </Link>
-            <Link className="text-decoration-none ms-5 text-dark" to="/courses">
+            <Link
+              className="text-decoration-none text-dark fw-bold btn "
+              to="/courses"
+            >
               Courses
             </Link>
-            <Link to="/faq" className="text-decoration-none ms-5 text-dark">
+            <Link
+              to="/faq"
+              className="text-decoration-none  text-dark fw-bold btn "
+            >
               FAQ
             </Link>
-            <Link to="/blog" className="text-decoration-none ms-5 text-dark">
+            <Link
+              to="/blog"
+              className="text-decoration-none  text-dark fw-bold btn "
+            >
               Blog
             </Link>
           </Nav>
@@ -82,19 +94,19 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Button variant="info">
+                  <Button variant="info" className="mx-2 ">
                     <Link
                       to="/login"
-                      className="text-decoration-none ms-5 text-dark"
+                      className="text-decoration-none  text-dark fw-bold"
                     >
                       Login
                     </Link>
                   </Button>{" "}
-                  <Button variant="warning">
+                  <Button variant="warning" className="mx-2">
                     {" "}
                     <Link
                       to="/signup"
-                      className="text-decoration-none ms-5 text-dark"
+                      className="text-decoration-none text-dark fw-bold"
                     >
                       Sign Up
                     </Link>
@@ -115,7 +127,7 @@ const Header = () => {
                     src={user.photoURL}
                   ></Image>
                 ) : (
-                  <FaUser></FaUser>
+                  <FaUser style={{ height: "30px" }}></FaUser>
                 )}
               </Nav.Link>
             </OverlayTrigger>
@@ -123,9 +135,15 @@ const Header = () => {
           <Nav className="ms-5">
             <div className="mx-auto">
               {theme ? (
-                <FaToggleOn onClick={handleToogleLight}></FaToggleOn>
+                <FaToggleOn
+                  style={{ width: "60px" }}
+                  onClick={handleToogleLight}
+                ></FaToggleOn>
               ) : (
-                <FaToggleOff onClick={handleToogleDark}></FaToggleOff>
+                <FaToggleOff
+                  style={{ width: "60px" }}
+                  onClick={handleToogleDark}
+                ></FaToggleOff>
               )}
             </div>
           </Nav>

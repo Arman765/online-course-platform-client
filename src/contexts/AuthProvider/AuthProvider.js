@@ -22,6 +22,11 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const providerLoginGit = (provider) => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -61,6 +66,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     loading,
     updateUserProfile,
+    providerLoginGit,
   };
 
   return (
