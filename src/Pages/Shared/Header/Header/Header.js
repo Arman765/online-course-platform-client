@@ -51,7 +51,7 @@ const Header = () => {
       variant={theme ? "light" : "dark"}
     >
       <Container>
-        <Navbar.Brand href="#home" className="fw-bold fs-4">
+        <Navbar.Brand className="fw-bold fs-4">
           Free<span className="text-black fs-4">Dom</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -136,7 +136,7 @@ const Header = () => {
               </Nav.Link>
             </OverlayTrigger>
           </Nav>
-          <Nav className="ms-5">
+          <Nav className="">
             <div className="mx-auto">
               {theme ? (
                 <FaToggleOn

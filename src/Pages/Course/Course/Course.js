@@ -25,7 +25,7 @@ const Course = () => {
                         <p>{course.price}</p>
                         <Link
                           to={`/course_detail/${course.id}`}
-                          className="btn btn-outline-info"
+                          className="btn btn-outline-info fw-bold"
                         >
                           Get Premium Access
                         </Link>

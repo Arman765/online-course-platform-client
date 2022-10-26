@@ -10,13 +10,15 @@ const Home = () => {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col sm="12" lg="6">
           <div className="mt-5">
             <h1 className="align-text-bottom fs-1 fw-bold">
               <p className="text-info ">FreeDom Online Learning</p>
-              <p className="">Can Be Reached,</p>
-              <p>From Everywhere</p>
-              <p>By Everyone</p>
+              <div>
+                <p className="">Can Be Reached</p>
+                <p>From Everywhere,</p>
+                <p>By Everyone.</p>
+              </div>
             </h1>
             <div className="mb-2">
               <Link
@@ -28,7 +30,7 @@ const Home = () => {
             </div>
           </div>
         </Col>
-        <Col>
+        <Col sm="12" lg="6">
           <div>
             <img
               className="img-fluid mt-5"

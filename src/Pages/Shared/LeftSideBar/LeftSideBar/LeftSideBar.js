@@ -17,7 +17,7 @@ const LeftSideBar = () => {
         {courses.map((course) => (
           <p key={course.id}>
             <Link
-              className="btn btn-outline-info text-decoration-none text-dark w-50"
+              className="btn btn-outline-info text-decoration-none text-dark w-50 fw-bold"
               to={`/courses/${course.id}`}
             >
               {course.name}
