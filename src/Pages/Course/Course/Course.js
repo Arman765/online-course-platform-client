@@ -1,9 +1,9 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const Course = () => {
   const courses = useLoaderData();
@@ -23,6 +23,12 @@ const Course = () => {
                       <div>
                         <p>{course.course_tutor}</p>
                         <p>{course.price}</p>
+                        <Link
+                          to={`/course_detail/${course.id}`}
+                          className="btn btn-outline-info"
+                        >
+                          Get Premium Access
+                        </Link>
                       </div>
                     </Card.Text>
                   </Card.Body>

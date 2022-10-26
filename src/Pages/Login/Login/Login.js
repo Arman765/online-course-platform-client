@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Login.css";
 import LoginImg from "../../../assets/login/login.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FaMailBulk, FaKey } from "react-icons/fa";
@@ -9,6 +9,9 @@ import { FaMailBulk, FaKey } from "react-icons/fa";
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
@@ -32,7 +35,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);

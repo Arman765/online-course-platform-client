@@ -49,19 +49,16 @@ const Blog = () => {
                 implement authentication?
               </h5>
               <p className="card-text">
-                <p>
-                  Firebase Authentication aims to make building secure
-                  authentication systems easy, while improving the sign-in and
-                  onboarding experience for end users. It provides an end-to-end
-                  identity solution, supporting email and password accounts,
-                  phone auth, and Google, Twitter, Facebook, and GitHub login,
-                  and more.
-                </p>
-                <p>
-                  12 User Authentication Platforms [Auth0, Firebase
-                  Alternatives] STYTCH. Ory. Supabase. Okta. PingIdentity.
-                  Keycloak. Frontegg. Authress.
-                </p>
+                Firebase Authentication aims to make building secure
+                authentication systems easy, while improving the sign-in and
+                onboarding experience for end users. It provides an end-to-end
+                identity solution, supporting email and password accounts, phone
+                auth, and Google, Twitter, Facebook, and GitHub login, and more.
+              </p>
+              <p className="card-text">
+                12 User Authentication Platforms [Auth0, Firebase Alternatives]
+                STYTCH. Ory. Supabase. Okta. PingIdentity. Keycloak. Frontegg.
+                Authress.
               </p>
               <p className="card-text">
                 <Button variant="outline-primary">More</Button>

@@ -6,7 +6,7 @@ import { FaUser, FaKey, FaMailBulk, FaPhotoVideo } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,14 +20,24 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        user.photoURL = photoURL;
-        user.displayName = name;
+
         console.log(user);
         form.reset();
+        handleUpdateUserProfile(name, photoURL);
       })
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -54,7 +64,6 @@ const SignUp = () => {
             name="photoURL"
             id="photoURL"
             placeholder="photoURL"
-            required
           />
         </div>
         <div className="form-field d-flex align-items-center">
@@ -79,7 +88,7 @@ const SignUp = () => {
         </div>
         <button className="btn mt-3">Submit</button>
       </form>
-      <button className="btn mt-2 mb-3">Google</button>
+
       <div className="text-center fs-6">
         <p>
           Already have an account ? <Link to="/login">Login</Link>
