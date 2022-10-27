@@ -7,7 +7,8 @@ const ref = React.createRef();
 
 const CourseDetails = () => {
   const course_detail = useLoaderData();
-  const { id, picture, price, title, course_tutor } = course_detail;
+  const { id, picture, price, title, course_tutor, description } =
+    course_detail;
   // console.log(picture, price, title);
 
   return (
@@ -33,8 +34,15 @@ const CourseDetails = () => {
             <Card.Title>{title}</Card.Title>
             <Card.Text>
               <div>
-                <p>Author : {course_tutor}</p>
-                <p>Price : {price}</p>
+                <p>
+                  <span className="fw-bold">Description :</span> {description}
+                </p>
+                <p>
+                  <span className="fw-bold">Author : </span> {course_tutor}
+                </p>
+                <p>
+                  <span className="fw-bold">Price :</span> {price}
+                </p>
               </div>
             </Card.Text>
           </Card.Body>

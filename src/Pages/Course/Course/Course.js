@@ -21,8 +21,18 @@ const Course = () => {
                     <Card.Title>{course.title}</Card.Title>
                     <Card.Text>
                       <div>
-                        <p>{course.course_tutor}</p>
-                        <p>{course.price}</p>
+                        <p>
+                          <span className="fw-bold">Description :</span>{" "}
+                          {course.description}
+                        </p>
+                        <p>
+                          <span className="fw-bold">Author : </span>{" "}
+                          {course.course_tutor}
+                        </p>
+                        <p>
+                          <span className="fw-bold">Price :</span>{" "}
+                          {course.price}
+                        </p>
                         <Link
                           to={`/course_detail/${course.id}`}
                           className="btn btn-outline-info fw-bold"

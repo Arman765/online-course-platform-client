@@ -14,10 +14,10 @@ const LeftSideBar = () => {
     <div className="text-center">
       <h1 className="mb-4 text-info fw-bold">All Courses</h1>
       <div>
-        {courses.map((course) => (
+        {courses?.map((course) => (
           <p key={course.id}>
             <Link
-              className="btn btn-outline-info text-decoration-none text-dark w-50 fw-bold"
+              className="btn btn-outline-warning text-decoration-none text-info w-50 fw-bold"
               to={`/courses/${course.id}`}
             >
               {course.name}

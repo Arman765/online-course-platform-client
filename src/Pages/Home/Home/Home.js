@@ -15,14 +15,14 @@ const Home = () => {
             <h1 className="align-text-bottom fs-1 fw-bold">
               <p className="text-info ">FreeDom Online Learning</p>
               <div>
-                <p className="">Can Be Reached</p>
-                <p>From Everywhere,</p>
-                <p>By Everyone.</p>
+                <p className="text-info ">Can Be Reached</p>
+                <p className="text-info ">From Everywhere,</p>
+                <p className="text-info ">By Everyone.</p>
               </div>
             </h1>
             <div className="mb-2">
               <Link
-                className="text-decoration-none  text-dark btn btn-outline-info fw-bold fs-5"
+                className="text-decoration-none   btn btn-outline-warning fw-bold fs-5 text-info "
                 to="/courses"
               >
                 Courses
