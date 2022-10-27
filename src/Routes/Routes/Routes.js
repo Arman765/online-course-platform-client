@@ -29,7 +29,9 @@ export const router = createBrowserRouter([
         path: "/courses/:id",
         element: <Courses></Courses>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(
+            `https://freedom-server-arman765.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "/course_detail/:id",
@@ -39,7 +41,9 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course_detail/${params.id}`),
+          fetch(
+            `https://freedom-server-arman765.vercel.app/course_detail/${params.id}`
+          ),
       },
       {
         path: "/blog",
