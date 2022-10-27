@@ -1,6 +1,6 @@
 **FREEDOM** online learning platform
 
-Live website link :
+Live website link : https://freedom-course.web.app/
 
 Features : The features we have are ->
 
